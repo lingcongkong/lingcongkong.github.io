@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>菜单 | 饱饱 Bistro</title>
+<style>
+  :root {
+    --color-primary: #1f2a24;
+    --color-accent: #c98b4a;
+    --color-bg: #faf7f2;
+    --color-text: #2b2b2b;
+    --max-width: 1100px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.6;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    background: var(--color-primary);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .logo {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+  }
+
+  nav a {
+    font-size: 15px;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+
+  nav a:hover { opacity: 1; color: var(--color-accent); }
+  nav a.active { opacity: 1; color: var(--color-accent); }
+
+  /* Page banner */
+  .page-banner {
+    background: linear-gradient(rgba(20,20,20,0.55), rgba(20,20,20,0.55)),
+                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 90px 24px;
+  }
+
+  .page-banner h1 {
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .page-banner p {
+    margin-top: 12px;
+    opacity: 0.9;
+  }
+
+  /* Menu */
+  section { padding: 80px 0; }
+
+  .category {
+    margin-bottom: 56px;
+  }
+
+  .category h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    border-left: 4px solid var(--color-accent);
+    padding-left: 12px;
+  }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .menu-item {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    background: #eee;
+  }
+
+  .menu-item .info { padding: 20px; }
+
+  .menu-item h3 {
+    font-size: 18px;
+    padding: 0;
+  }
+
+  /* Footer */
+  footer {
+    background: #14180f;
+    color: #999;
+    text-align: center;
+    padding: 32px 0;
+    font-size: 14px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav ul { gap: 16px; }
+    .menu-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a class="logo" href="index.html">饱饱 Bistro</a>
+    <nav>
+      <ul>
+        <li><a href="menu.html" class="active">菜单</a></li>
+        <li><a href="index.html#about">关于我们</a></li>
+        <li><a href="index.html#info">营业信息</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-banner">
+  <h1>菜单</h1>
+  <p>精选四季食材，每一道菜都值得期待</p>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="category">
+      <h2>主菜</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="imgs/主菜/三杯鸡.JPG" alt="三杯鸡">
+          <div class="info">
+            <h3>三杯鸡</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/叉烧.JPG" alt="叉烧">
+          <div class="info">
+            <h3>叉烧</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/椒盐大虾.JPG" alt="椒盐大虾">
+          <div class="info">
+            <h3>椒盐大虾</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/番茄炒蛋.JPG" alt="番茄炒蛋">
+          <div class="info">
+            <h3>番茄炒蛋</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/老妈蹄花.JPG" alt="老妈蹄花">
+          <div class="info">
+            <h3>老妈蹄花</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/钵钵鸡.JPG" alt="钵钵鸡">
+          <div class="info">
+            <h3>钵钵鸡</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="category">
+      <h2>甜点 小吃</h2>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <img src="imgs/甜点%20小吃/凉虾.JPG" alt="凉虾">
+          <div class="info">
+            <h3>凉虾</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/甜点%20小吃/烤红薯.JPG" alt="烤红薯">
+          <div class="info">
+            <h3>烤红薯</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 饱饱 Bistro. All rights reserved.
+</footer>
+
+</body>
+</html>
