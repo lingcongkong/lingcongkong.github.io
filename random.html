@@ -237,7 +237,8 @@
         <label>从哪里抽？</label>
         <div class="radio-group">
           <label><input type="radio" name="category" value="all" checked> 都要</label>
-          <label><input type="radio" name="category" value="主菜"> 主菜</label>
+          <label><input type="radio" name="category" value="荤菜"> 荤菜</label>
+          <label><input type="radio" name="category" value="素菜"> 素菜</label>
           <label><input type="radio" name="category" value="甜点 小吃"> 甜点 小吃</label>
         </div>
       </div>
@@ -263,27 +264,29 @@
 
 <script>
   const DISHES = {
-    "主菜": [
-      { name: "三杯鸡", img: "imgs/主菜/三杯鸡.JPG" },
-      { name: "叉烧", img: "imgs/主菜/叉烧.JPG" },
-      { name: "可乐鸡翅", img: "imgs/主菜/可乐鸡翅.jpg" },
-      { name: "土豆饼", img: "imgs/主菜/土豆饼.jpg" },
-      { name: "梅菜烧肉", img: "imgs/主菜/梅菜烧肉.jpg" },
-      { name: "椒盐大虾", img: "imgs/主菜/椒盐大虾.JPG" },
-      { name: "炒上海青", img: "imgs/主菜/炒上海青.jpg" },
-      { name: "炒豆角", img: "imgs/主菜/炒豆角.jpg" },
-      { name: "烤排骨", img: "imgs/主菜/烤排骨.jpg" },
-      { name: "番茄炒蛋", img: "imgs/主菜/番茄炒蛋.JPG" },
-      { name: "白灼西兰花", img: "imgs/主菜/白灼西兰花.jpg" },
-      { name: "老妈蹄花", img: "imgs/主菜/老妈蹄花.JPG" },
-      { name: "肉末豆角", img: "imgs/主菜/肉末豆角.jpg" },
-      { name: "节瓜排骨汤", img: "imgs/主菜/节瓜排骨汤.jpg" },
-      { name: "茶树菇鸡腿", img: "imgs/主菜/茶树菇鸡腿.jpg" },
-      { name: "蒜蓉蒸茄子", img: "imgs/主菜/蒜蓉蒸茄子.jpg" },
-      { name: "蒸水蛋", img: "imgs/主菜/蒸水蛋.jpg" },
-      { name: "蘑菇牛仔骨", img: "imgs/主菜/蘑菇牛仔骨.jpg" },
-      { name: "钵钵鸡", img: "imgs/主菜/钵钵鸡.JPG" },
-      { name: "香煎巴沙鱼", img: "imgs/主菜/香煎巴沙鱼.jpg" }
+    "荤菜": [
+      { name: "三杯鸡", img: "imgs/荤菜/三杯鸡.JPG" },
+      { name: "叉烧", img: "imgs/荤菜/叉烧.JPG" },
+      { name: "可乐鸡翅", img: "imgs/荤菜/可乐鸡翅.jpg" },
+      { name: "梅菜烧肉", img: "imgs/荤菜/梅菜烧肉.jpg" },
+      { name: "椒盐大虾", img: "imgs/荤菜/椒盐大虾.JPG" },
+      { name: "烤排骨", img: "imgs/荤菜/烤排骨.jpg" },
+      { name: "老妈蹄花", img: "imgs/荤菜/老妈蹄花.JPG" },
+      { name: "肉末豆角", img: "imgs/荤菜/肉末豆角.jpg" },
+      { name: "节瓜排骨汤", img: "imgs/荤菜/节瓜排骨汤.jpg" },
+      { name: "茶树菇鸡腿", img: "imgs/荤菜/茶树菇鸡腿.jpg" },
+      { name: "蘑菇牛仔粒", img: "imgs/荤菜/蘑菇牛仔粒.jpg" },
+      { name: "钵钵鸡", img: "imgs/荤菜/钵钵鸡.JPG" },
+      { name: "香煎巴沙鱼", img: "imgs/荤菜/香煎巴沙鱼.jpg" }
+    ],
+    "素菜": [
+      { name: "土豆饼", img: "imgs/素菜/土豆饼.jpg" },
+      { name: "炒上海青", img: "imgs/素菜/炒上海青.jpg" },
+      { name: "炒豆角", img: "imgs/素菜/炒豆角.jpg" },
+      { name: "番茄炒蛋", img: "imgs/素菜/番茄炒蛋.JPG" },
+      { name: "白灼西兰花", img: "imgs/素菜/白灼西兰花.jpg" },
+      { name: "蒜蓉蒸茄子", img: "imgs/素菜/蒜蓉蒸茄子.jpg" },
+      { name: "蒸水蛋", img: "imgs/素菜/蒸水蛋.jpg" }
     ],
     "甜点 小吃": [
       { name: "凉虾", img: "imgs/甜点%20小吃/凉虾.JPG" },
@@ -293,7 +296,7 @@
 
   function getPool(category) {
     if (category === "all") {
-      return [...DISHES["主菜"], ...DISHES["甜点 小吃"]];
+      return [...DISHES["荤菜"], ...DISHES["素菜"], ...DISHES["甜点 小吃"]];
     }
     return DISHES[category] || [];
   }
