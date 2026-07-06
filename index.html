@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>饱饱 Bistro | 餐厅主页</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Homenaje&family=Noto+Serif+HK:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --color-primary: #1f2a24;
@@ -47,9 +50,17 @@
   }
 
   .logo {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 24px;
     letter-spacing: 1px;
+  }
+
+  .logo .logo-cn {
+    font-family: 'Noto Serif HK', 'Helvetica Neue', "PingFang SC", serif;
+    font-weight: 700;
+  }
+
+  .logo .logo-en {
+    font-family: 'Homenaje', 'Helvetica Neue', sans-serif;
   }
 
   nav ul {
@@ -68,6 +79,7 @@
 
   /* Hero */
   .hero {
+    position: relative;
     background: linear-gradient(rgba(20,20,20,0.55), rgba(20,20,20,0.55)),
                 url('imgs/cover.JPG') center 15%/cover no-repeat;
     color: #fff;
@@ -75,16 +87,32 @@
     padding: 140px 24px;
   }
 
+  .hero .quote-wrap {
+    max-width: 720px;
+    margin: 0 auto 16px;
+  }
+
   .hero h1 {
-    font-size: 44px;
-    margin-bottom: 16px;
-    font-weight: 700;
+    font-family: 'Playfair Display', 'Helvetica Neue', "PingFang SC", serif;
+    font-size: 36px;
+    font-weight: 600;
   }
 
   .hero p {
+    font-family: 'Playfair Display', 'Helvetica Neue', "PingFang SC", serif;
     font-size: 18px;
     opacity: 0.9;
     margin-bottom: 32px;
+  }
+
+  .hero .quote-attribution {
+    display: block;
+    text-align: right;
+    margin-top: 8px;
+    font-family: 'Playfair Display', 'Helvetica Neue', "PingFang SC", serif;
+    font-style: italic;
+    font-size: 14px;
+    opacity: 0.75;
   }
 
   .btn {
@@ -151,7 +179,12 @@
 
   /* About */
   .about {
-    background: #fff;
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+                       url('imgs/door.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
 
   .about .container {
@@ -220,10 +253,11 @@
 
 <header>
   <div class="container">
-    <div class="logo">饱饱 Bistro</div>
+    <div class="logo"><span class="logo-cn">饱饱</span> <span class="logo-en">Bistro</span></div>
     <nav>
       <ul>
         <li><a href="menu.html">菜单</a></li>
+        <li><a href="random.html">随机菜单</a></li>
         <li><a href="#about">关于我们</a></li>
         <li><a href="#info">营业信息</a></li>
       </ul>
@@ -232,8 +266,11 @@
 </header>
 
 <section class="hero">
-  <h1>用心烹饪，用味道讲故事</h1>
-  <p>新鲜食材 · 匠心手作 · 温暖如家</p>
+  <div class="quote-wrap">
+    <h1>"Eat to live, not live to eat."</h1>
+    <span class="quote-attribution">&mdash; Socrates.</span>
+  </div>
+  <p>Fresh Ingredients &middot; Plating by Vibes &middot; Warm as Home (We Vacuumed for You)</p>
   <a href="menu.html" class="btn">查看菜单</a>
 </section>
 
@@ -242,8 +279,8 @@
     <img src="imgs/cover2.JPG" alt="餐厅内景">
     <div class="text">
       <h2>关于我们</h2>
-      <p>饱饱 Bistro 成立于本地社区，坚持每日采购新鲜食材，用简单而真诚的方式呈现美味。我们相信一顿好饭，能让平凡的一天变得特别。</p>
-      <p>无论是朋友聚餐还是家庭时光，这里都是你温暖的第二个家。</p>
+      <p>饱饱 Bistro 成立于一个饥饿的深夜，创始人在冰箱前站了整整十分钟，最终决定不如自己开一家餐厅。我们坚持每天采购新鲜食材，除非老板忘记去买菜。</p>
+      <p>我们相信，一顿好饭能治愈一切，除了忘记付款这件事。无论是朋友聚餐、家庭时光，还是一个人来点份炒蛋思考人生，这里都欢迎你——前提是你能找到门。</p>
     </div>
   </div>
 </section>
@@ -252,8 +289,8 @@
   <div class="container">
     <div>
       <h3>营业时间</h3>
-      <p>周一至周五 11:00–22:00</p>
-      <p>周末 10:00–23:00</p>
+      <p>周一到周日：随缘营业</p>
+      <p>具体几点，看老板心情</p>
     </div>
     <div>
       <h3>地址</h3>
@@ -261,8 +298,8 @@
     </div>
     <div>
       <h3>联系方式</h3>
-      <p>电话：010-1234 5678</p>
-      <p>邮箱：hello@baobaobistro.com</p>
+      <p>敲门比打电话管用</p>
+      <p>顺便带点吃的来更管用</p>
     </div>
   </div>
 </section>

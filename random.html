@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>随机菜单 | 饱饱 Bistro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Homenaje&family=Noto+Serif+HK:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #1f2a24;
+    --color-accent: #c98b4a;
+    --color-bg: #faf7f2;
+    --color-text: #2b2b2b;
+    --max-width: 1100px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: var(--color-text);
+    background: var(--color-bg);
+    line-height: 1.6;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    background: var(--color-primary);
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .logo {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+
+  .logo .logo-cn {
+    font-family: 'Noto Serif HK', 'Helvetica Neue', "PingFang SC", serif;
+    font-weight: 700;
+  }
+
+  .logo .logo-en {
+    font-family: 'Homenaje', 'Helvetica Neue', sans-serif;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+  }
+
+  nav a {
+    font-size: 15px;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+  }
+
+  nav a:hover { opacity: 1; color: var(--color-accent); }
+  nav a.active { opacity: 1; color: var(--color-accent); }
+
+  /* Page banner */
+  .page-banner {
+    background: linear-gradient(rgba(20,20,20,0.55), rgba(20,20,20,0.55)),
+                url('imgs/cover.JPG') center 15%/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 90px 24px;
+  }
+
+  .page-banner h1 {
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .page-banner p {
+    margin-top: 12px;
+    opacity: 0.9;
+  }
+
+  section { padding: 60px 0; }
+
+  /* Picker form */
+  .picker {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    padding: 32px;
+    max-width: 560px;
+    margin: 0 auto 56px;
+  }
+
+  .field { margin-bottom: 24px; }
+
+  .field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .field input[type="number"] {
+    width: 100px;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    padding: 14px 36px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+  }
+
+  .btn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+  .hint {
+    font-size: 13px;
+    color: #999;
+    margin-top: 8px;
+  }
+
+  /* Results */
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+
+  .menu-item {
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  }
+
+  .menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    background: #eee;
+  }
+
+  .menu-item .info { padding: 20px; text-align: center; }
+
+  .menu-item h3 { font-size: 18px; }
+
+  .empty-hint {
+    text-align: center;
+    color: #999;
+  }
+
+  /* Footer */
+  footer {
+    background: #14180f;
+    color: #999;
+    text-align: center;
+    padding: 32px 0;
+    font-size: 14px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav ul { gap: 16px; }
+    .result-grid { grid-template-columns: 1fr; }
+    .picker { padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <a class="logo" href="index.html"><span class="logo-cn">饱饱</span> <span class="logo-en">Bistro</span></a>
+    <nav>
+      <ul>
+        <li><a href="menu.html">菜单</a></li>
+        <li><a href="random.html" class="active">随机菜单</a></li>
+        <li><a href="index.html#about">关于我们</a></li>
+        <li><a href="index.html#info">营业信息</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-banner">
+  <h1>今天吃什么？</h1>
+  <p>选好范围和数量，交给运气决定</p>
+</section>
+
+<section>
+  <div class="container">
+
+    <div class="picker">
+      <div class="field">
+        <label>从哪里抽？</label>
+        <div class="radio-group">
+          <label><input type="radio" name="category" value="all" checked> 都要</label>
+          <label><input type="radio" name="category" value="主菜"> 主菜</label>
+          <label><input type="radio" name="category" value="甜点 小吃"> 甜点 小吃</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="count">想吃几道菜？</label>
+        <input type="number" id="count" min="1" value="3">
+        <p class="hint" id="maxHint"></p>
+      </div>
+
+      <button class="btn" id="drawBtn">帮我选</button>
+    </div>
+
+    <div class="result-grid" id="results"></div>
+    <p class="empty-hint" id="emptyHint" style="display:none;">这个范围里没有这么多菜，已经把能抽的都给你了。</p>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 饱饱 Bistro. All rights reserved.
+</footer>
+
+<script>
+  const DISHES = {
+    "主菜": [
+      { name: "三杯鸡", img: "imgs/主菜/三杯鸡.JPG" },
+      { name: "叉烧", img: "imgs/主菜/叉烧.JPG" },
+      { name: "可乐鸡翅", img: "imgs/主菜/可乐鸡翅.jpg" },
+      { name: "土豆饼", img: "imgs/主菜/土豆饼.jpg" },
+      { name: "梅菜烧肉", img: "imgs/主菜/梅菜烧肉.jpg" },
+      { name: "椒盐大虾", img: "imgs/主菜/椒盐大虾.JPG" },
+      { name: "炒上海青", img: "imgs/主菜/炒上海青.jpg" },
+      { name: "炒豆角", img: "imgs/主菜/炒豆角.jpg" },
+      { name: "烤排骨", img: "imgs/主菜/烤排骨.jpg" },
+      { name: "番茄炒蛋", img: "imgs/主菜/番茄炒蛋.JPG" },
+      { name: "白灼西兰花", img: "imgs/主菜/白灼西兰花.jpg" },
+      { name: "老妈蹄花", img: "imgs/主菜/老妈蹄花.JPG" },
+      { name: "肉末豆角", img: "imgs/主菜/肉末豆角.jpg" },
+      { name: "节瓜排骨汤", img: "imgs/主菜/节瓜排骨汤.jpg" },
+      { name: "茶树菇鸡腿", img: "imgs/主菜/茶树菇鸡腿.jpg" },
+      { name: "蒜蓉蒸茄子", img: "imgs/主菜/蒜蓉蒸茄子.jpg" },
+      { name: "蒸水蛋", img: "imgs/主菜/蒸水蛋.jpg" },
+      { name: "蘑菇牛仔骨", img: "imgs/主菜/蘑菇牛仔骨.jpg" },
+      { name: "钵钵鸡", img: "imgs/主菜/钵钵鸡.JPG" },
+      { name: "香煎巴沙鱼", img: "imgs/主菜/香煎巴沙鱼.jpg" }
+    ],
+    "甜点 小吃": [
+      { name: "凉虾", img: "imgs/甜点%20小吃/凉虾.JPG" },
+      { name: "烤红薯", img: "imgs/甜点%20小吃/烤红薯.JPG" }
+    ]
+  };
+
+  function getPool(category) {
+    if (category === "all") {
+      return [...DISHES["主菜"], ...DISHES["甜点 小吃"]];
+    }
+    return DISHES[category] || [];
+  }
+
+  function getSelectedCategory() {
+    const checked = document.querySelector('input[name="category"]:checked');
+    return checked ? checked.value : "all";
+  }
+
+  function updateHint() {
+    const pool = getPool(getSelectedCategory());
+    document.getElementById('maxHint').textContent = `该范围内共有 ${pool.length} 道菜`;
+  }
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+
+  function draw() {
+    const pool = getPool(getSelectedCategory());
+    let count = parseInt(document.getElementById('count').value, 10);
+    if (!count || count < 1) count = 1;
+
+    const resultsEl = document.getElementById('results');
+    const emptyHintEl = document.getElementById('emptyHint');
+    resultsEl.innerHTML = '';
+
+    if (pool.length === 0) {
+      emptyHintEl.style.display = 'block';
+      return;
+    }
+
+    const picked = shuffle(pool).slice(0, Math.min(count, pool.length));
+    emptyHintEl.style.display = count > pool.length ? 'block' : 'none';
+
+    picked.forEach(dish => {
+      const card = document.createElement('div');
+      card.className = 'menu-item';
+      card.innerHTML = `
+        <img src="${dish.img}" alt="${dish.name}">
+        <div class="info"><h3>${dish.name}</h3></div>
+      `;
+      resultsEl.appendChild(card);
+    });
+  }
+
+  document.querySelectorAll('input[name="category"]').forEach(el => {
+    el.addEventListener('change', updateHint);
+  });
+  document.getElementById('drawBtn').addEventListener('click', draw);
+
+  updateHint();
+</script>
+
+</body>
+</html>

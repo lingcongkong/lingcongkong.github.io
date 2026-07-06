@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>菜单 | 饱饱 Bistro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Homenaje&family=Noto+Serif+HK:wght@500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --color-primary: #1f2a24;
@@ -47,9 +50,17 @@
   }
 
   .logo {
-    font-size: 22px;
-    font-weight: 700;
+    font-size: 24px;
     letter-spacing: 1px;
+  }
+
+  .logo .logo-cn {
+    font-family: 'Noto Serif HK', 'Helvetica Neue', "PingFang SC", serif;
+    font-weight: 700;
+  }
+
+  .logo .logo-en {
+    font-family: 'Homenaje', 'Helvetica Neue', sans-serif;
   }
 
   nav ul {
@@ -148,10 +159,11 @@
 
 <header>
   <div class="container">
-    <a class="logo" href="index.html">饱饱 Bistro</a>
+    <a class="logo" href="index.html"><span class="logo-cn">饱饱</span> <span class="logo-en">Bistro</span></a>
     <nav>
       <ul>
         <li><a href="menu.html" class="active">菜单</a></li>
+        <li><a href="random.html">随机菜单</a></li>
         <li><a href="index.html#about">关于我们</a></li>
         <li><a href="index.html#info">营业信息</a></li>
       </ul>
@@ -183,9 +195,45 @@
           </div>
         </div>
         <div class="menu-item">
+          <img src="imgs/主菜/可乐鸡翅.jpg" alt="可乐鸡翅">
+          <div class="info">
+            <h3>可乐鸡翅</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/土豆饼.jpg" alt="土豆饼">
+          <div class="info">
+            <h3>土豆饼</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/梅菜烧肉.jpg" alt="梅菜烧肉">
+          <div class="info">
+            <h3>梅菜烧肉</h3>
+          </div>
+        </div>
+        <div class="menu-item">
           <img src="imgs/主菜/椒盐大虾.JPG" alt="椒盐大虾">
           <div class="info">
             <h3>椒盐大虾</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/炒上海青.jpg" alt="炒上海青">
+          <div class="info">
+            <h3>炒上海青</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/炒豆角.jpg" alt="炒豆角">
+          <div class="info">
+            <h3>炒豆角</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/烤排骨.jpg" alt="烤排骨">
+          <div class="info">
+            <h3>烤排骨</h3>
           </div>
         </div>
         <div class="menu-item">
@@ -195,15 +243,63 @@
           </div>
         </div>
         <div class="menu-item">
+          <img src="imgs/主菜/白灼西兰花.jpg" alt="白灼西兰花">
+          <div class="info">
+            <h3>白灼西兰花</h3>
+          </div>
+        </div>
+        <div class="menu-item">
           <img src="imgs/主菜/老妈蹄花.JPG" alt="老妈蹄花">
           <div class="info">
             <h3>老妈蹄花</h3>
           </div>
         </div>
         <div class="menu-item">
+          <img src="imgs/主菜/肉末豆角.jpg" alt="肉末豆角">
+          <div class="info">
+            <h3>肉末豆角</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/节瓜排骨汤.jpg" alt="节瓜排骨汤">
+          <div class="info">
+            <h3>节瓜排骨汤</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/茶树菇鸡腿.jpg" alt="茶树菇鸡腿">
+          <div class="info">
+            <h3>茶树菇鸡腿</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/蒜蓉蒸茄子.jpg" alt="蒜蓉蒸茄子">
+          <div class="info">
+            <h3>蒜蓉蒸茄子</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/蒸水蛋.jpg" alt="蒸水蛋">
+          <div class="info">
+            <h3>蒸水蛋</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/蘑菇牛仔骨.jpg" alt="蘑菇牛仔骨">
+          <div class="info">
+            <h3>蘑菇牛仔骨</h3>
+          </div>
+        </div>
+        <div class="menu-item">
           <img src="imgs/主菜/钵钵鸡.JPG" alt="钵钵鸡">
           <div class="info">
             <h3>钵钵鸡</h3>
+          </div>
+        </div>
+        <div class="menu-item">
+          <img src="imgs/主菜/香煎巴沙鱼.jpg" alt="香煎巴沙鱼">
+          <div class="info">
+            <h3>香煎巴沙鱼</h3>
           </div>
         </div>
       </div>
